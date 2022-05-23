@@ -65,6 +65,7 @@ const Template = () => {
                                                 <ActionIcon 
                                                     variant="transparent"  
                                                     title="Use template"
+                                                    style={{fontSize: "1.3em"}}
                                                     size="1.3em"
                                                     onClick={() => selected(temp)}
                                                 >
