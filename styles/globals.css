@@ -75,6 +75,37 @@ section{
     align-items: center;
 }
 
+.nav_bar nav{
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav_bar nav .logo_contain .logo{
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
+.nav_bar nav .socials_contain{
+    display: flex;
+}
+
+.nav_bar nav .socials_contain .social_icon{
+    display: block;
+    padding: 8px 10px;
+    border: none;
+    border-radius: 5px;
+    background: none;
+    /* background: var(--dark-gray); */
+    border: 1px solid #e0e0e0;
+    color: #222;
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: 700;
+    font-size: .8em;
+}
+
 @media screen and (max-width: 768px){
     .home_page .hero_section{
         height: 70vh;
@@ -328,6 +359,8 @@ section{
     width: 100%;
     height: 100%;
     background: whitesmoke;
+    border-top: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
     padding: 50px;
 }
 

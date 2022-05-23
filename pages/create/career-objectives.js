@@ -54,7 +54,7 @@ const Summary = () => {
         <Layout title="Career Objectives">
             <Create name="Career Objectives" progress={80} description="Finish your resume with a short summary">
                 <div className="skills_page">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} onChange={() => setError(null)}>
 
                         <Textarea
                             placeholder=""

@@ -6,6 +6,8 @@ import step from "../images/step.svg"
 import { motion } from "framer-motion"
 import { useEffect } from "react"
 import { createResume } from "../lib/createHandler"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faCheck } from "@fortawesome/free-solid-svg-icons"
 
 const HowItWorks = () => {
 
@@ -38,13 +40,22 @@ const HowItWorks = () => {
                                 </p>
                                 <ul className="step_list">
                                     <li>
-                                        <p>Fill In Important Informations</p>
+                                        <span style={{marginRight: "15px"}}>
+                                            <FontAwesomeIcon icon={faCheck} />
+                                        </span>
+                                        <span>Fill In Important Informations</span>
                                     </li>
                                     <li>
-                                        <p>Select Preferred Template</p>
+                                        <span style={{marginRight: "15px"}}>
+                                            <FontAwesomeIcon icon={faCheck} />
+                                        </span>
+                                        <span>Select Preferred Template</span>
                                     </li>
                                     <li>
-                                        <p>Save as pdf and print</p>
+                                        <span style={{marginRight: "15px"}}>
+                                            <FontAwesomeIcon icon={faCheck} />
+                                        </span>
+                                        <span>Save as pdf and print</span>
                                     </li>
                                 </ul>
                                 <Link href="/create/personal" passHref>

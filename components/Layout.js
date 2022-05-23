@@ -1,5 +1,6 @@
 import Head from "next/head"
 import { motion } from "framer-motion"
+import Navbar from "./Navbar"
 
 const Layout = ({ children ,title, description }) => {
 
@@ -16,6 +17,7 @@ const Layout = ({ children ,title, description }) => {
             <meta name="description" content={description} />
         </Head>
     
+        <Navbar />
         <motion.main
             initial="hidden"
             animate="enter"

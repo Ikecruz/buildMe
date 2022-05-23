@@ -70,7 +70,7 @@ const Skills = () => {
         <Layout title="Skills">
             <Create name="Skills" progress={60} description="Add your language, technology, equipment, software, and/or other abilites">
                 <div className="skills_page">
-                    <form onSubmit={addToForm}>
+                    <form onSubmit={addToForm} onChange={() => setSkillError(null)}>
 
                         <TextInput
                             required

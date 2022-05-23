@@ -111,7 +111,7 @@ const Education = () => {
         <Layout title="Education">
             <Create name="Education" progress={40} description="Where did you go to school">
                 <div className="education_page">
-                    <form onSubmit={handleSubmit}>
+                    <form onSubmit={handleSubmit} onChange={() => setFormError(null)}>
 
                         { 
                             formValue.map((item, index) => (

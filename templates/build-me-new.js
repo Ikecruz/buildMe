@@ -90,7 +90,7 @@ const BuildMeNew = ({ resume }) => {
 
             {/* HEADER */}
             <View style={styles.header}>
-                <Text>{resume.personal.firstName} {resume.personal.firstName}</Text>
+                <Text>{resume.personal.firstName} {resume.personal.lastname}</Text>
             </View>
             {/* HEADER END */}
 
@@ -107,17 +107,8 @@ const BuildMeNew = ({ resume }) => {
                             </View>
 
                             <View style={styles.sectionValue}>
-                                <Text style={styles.sectionValueText}> Front End Developer with experience
-                                    helping businesses create and maintain
-                                    a better code base for reusability.
-                                    Capable of continuous learning from
-                                    senior developers. Passionate about
-                                    learning and development, with a
-                                    desire to apply skills on larger
-                                    development teams. Eager to tackle
-                                    more complex problems and continue
-                                    to find ways to maximize user
-                                    efficiency.
+                                <Text style={styles.sectionValueText}> 
+                                    {resume.summary}
                                 </Text>
                             </View>
 
@@ -190,21 +181,23 @@ const BuildMeNew = ({ resume }) => {
                                 <Text style={styles.sectionNameText}>Education</Text>
                             </View>
 
+                            <View style={styles.sectionValue}>
+
                             {
                                 resume.education.map(({ schoolName, degree, startDate, gradDate, city, state }, index) => (
-                                    <View style={styles.sectionValue} key={index}>
-                                        <View style={{ marginBottom: "20px" }}>
-                                            <Text style={styles.sectionValueText}>
-                                                <p>{degree}</p>,
-                                                &nbsp;
-                                                <p>{formatDate(startDate)} - { formatDate(gradDate) }</p>
-                                            </Text>
-                                            <Text style={styles.sectionValueText}>{schoolName}</Text>
-                                            <Text style={styles.sectionValueText}>{city}, {state}</Text>
-                                        </View>
+                                    <View style={{ marginBottom: "20px" }}  key={index}>
+                                        <Text style={styles.sectionValueText}>
+                                            <p>{degree}</p>,
+                                            &nbsp;
+                                            <p>{formatDate(startDate)} - { formatDate(gradDate) }</p>
+                                        </Text>
+                                        <Text style={styles.sectionValueText}>{schoolName}</Text>
+                                        <Text style={styles.sectionValueText}>{city}, {state}</Text>
                                     </View>
                                 ))
                             }
+                            
+                            </View>
                             
 
                         </View>
