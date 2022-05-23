@@ -33,6 +33,39 @@ section{
     border-radius: 5px;
 }
 
+.missing_info_header{
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.missing_info_msg{
+    margin: 25px 0;
+    text-align: center;
+}
+
+.missing_info_btn_contain{
+    display: flex;
+    justify-content: space-between;
+}
+
+.missing_info_btn_contain button{
+    width: 47%;
+    background: transparent;
+    border: none;
+    display: block;
+    border: none;
+    padding: 8px 25px;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: .9em;
+    border-radius: 5px;
+}
+
+.missing_info_btn_contain button.filled{
+    color: white;
+    background: #1d87d5;
+}
+
 .home_page .hero_section{
     height: 80vh;
     /* background: red; */
@@ -407,4 +440,174 @@ section{
 
 .forms_body .skills_page .skill_pills_contain .skill_pill .skill_name{
     margin-right: 10px;
+}
+
+.templates_page .page_header{
+    padding: 40px 0;
+}
+
+.templates_page .page_header p{
+    font-size: 1.5em;
+    font-weight: 700;
+}
+
+.templates_page .template_card .template_img_contain{
+    height: 200px;
+    width: 100%;
+    background: whitesmoke;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.templates_page .template_card .template_img_contain .img{
+    transform: translateY(40px);
+    height: 100%;
+    width: 60%;
+    margin: auto;
+}
+
+.templates_page .template_card .template_img_contain .template_card_overlay{
+    position: absolute;
+    top: 0;
+    background: rgba(0, 0, 0, 0.5);
+    height: 100%;
+    width: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: .5s;
+}
+
+.templates_page .template_card .template_img_contain:hover .template_card_overlay{
+    display: flex;
+    transition: .5s;
+}
+
+.templates_page .template_card .mobile_btn_contain{
+    display: flex;
+    margin: 20px 0;
+    justify-content: space-between;
+}
+
+.templates_page .template_card .mobile_btn_contain button{
+    height: 30px;
+    width: 47%;
+    border: none;
+    background: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 992px){
+    .templates_page .template_card .mobile_btn_contain button{
+        display: none;
+    }
+}
+
+.templates_page .template_card .mobile_btn_contain button span{
+    margin-left: 10px;
+}
+
+.templates_page .template_card .mobile_btn_contain button.filled{
+    background: #1d87d5;
+    color: white;
+}
+
+.templates_page .template_preview_overlay{
+    background: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+
+.templates_page .template_previewer{
+    height: 100vh;
+    width: 40vw;
+    background: white;
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    overflow-y: auto;
+}
+
+@media screen and (max-width: 992px){
+    .templates_page .template_previewer{
+        width: 90vw;
+    }
+}
+
+.templates_page .template_previewer .contain{
+    padding: 20px 30px;
+}
+
+.templates_page .template_previewer .template_preview_img{
+    height: auto;
+    width: 100%;
+    margin: 50px 0;
+}
+
+@media screen and (max-width: 992px){
+    .templates_page .template_previewer .template_preview_img{
+        height: 70vh;
+    }
+}
+
+.templates_page .template_previewer .select_btn{
+    height: 40px;
+    width: 100%;
+    background: #1d87d5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.finish_page{
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.finish_page .loader_contain,
+.finish_page .success_contain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.finish_page .loader{
+    margin: 30px 0;
+}
+
+.finish_page .text{
+    font-weight: 700;
+    font-size: 1.1em;
+    margin-bottom: 30px;
+}
+
+.finish_page .download_btn{
+    display: block;
+    background: #1d87d5;
+    border: none;
+    padding: 8px 25px;
+    color: white;
+    cursor: pointer;
+    text-transform: capitalize;
+    font-size: .9em;
+    width: fit-content;
+    border-radius: 5px;
+}
+
+.finish_page .download_btn span{
+    margin-left: 10px;
 }

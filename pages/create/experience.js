@@ -1,4 +1,4 @@
-import { ActionIcon, Checkbox, Grid, Group, Select, TextInput } from "@mantine/core"
+import { ActionIcon, Checkbox, Grid, Group, Modal, Select, TextInput } from "@mantine/core"
 import Create from "../../components/Create"
 import Layout from "../../components/Layout"
 import { useState, useEffect, useRef } from "react"
@@ -15,7 +15,7 @@ const Experience = () => {
 
     const router = useRouter()
 
-    const [warnModal, setWarnModal] = useState()
+    const [missingInfo, setMissingInfo] = useState(false)
 
     const initial = {
         jobTitle: '',
@@ -67,7 +67,7 @@ const Experience = () => {
         delete temp_initial.key
 
         if (JSON.stringify([temp_initial]) == JSON.stringify(formValue)) {
-            console.log("dumb move")
+            setMissingInfo(true)
             return
         }
 
@@ -128,7 +128,7 @@ const Experience = () => {
                         { 
                             formValue.map((item, index) => (
 
-                                <div key={item.key}>
+                                <div key={index}>
                                     {
                                         index > 0 && 
                                         <Group position="right">
@@ -138,7 +138,7 @@ const Experience = () => {
                                         </Group>
                                     }
 
-                                    <Grid gutter="lg" mb={25}>
+                                    <Grid gutter="lg" mb={25} key={item.key}>
 
                                         <Grid.Col span={12} md={6}>
                                             <TextInput
@@ -239,6 +239,29 @@ const Experience = () => {
                             </button>
                         </div>
                     </form>
+
+                    <Modal
+                        opened={missingInfo}
+                        centered
+                        withCloseButton={false}
+                        onClose={() => setMissingInfo(false)}
+                    >
+                        <p className="missing_info_header">Missing Fields</p>
+                        <p className="missing_info_msg">Looks like you haven&apos;t entered any value in the Form provided, It&apos;s recommended you fill in the Form</p>
+                        <div className="missing_info_btn_contain">
+                            <button
+                                onClick={() => router.push('/create/education')}
+                            >
+                                Skip
+                            </button>
+                            <button
+                                onClick={() => setMissingInfo(false)}
+                                className="filled"
+                            >
+                                Fix
+                            </button>
+                        </div>
+                    </Modal>
                 </div>
             </Create>
         </Layout>

@@ -1,4 +1,4 @@
-import { ActionIcon, TextInput } from "@mantine/core"
+import { ActionIcon, Modal, TextInput } from "@mantine/core"
 import Create from "../../components/Create"
 import Layout from "../../components/Layout"
 import { useState, useEffect, useRef } from "react"
@@ -8,11 +8,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleLeft, faAngleRight, faTimes } from "@fortawesome/free-solid-svg-icons"
 import { checkProp, getProp, getResume, updateResume } from "../../lib/createHandler"
 
-const Experience = () => {
+const Skills = () => {
 
     const resume = getResume()
 
     const router = useRouter()
+
+    const [missingInfo, setMissingInfo] = useState(false)
 
     const [skillValue, setSkillValue] = useState([])
     const skillInput = useRef(null)
@@ -45,10 +47,16 @@ const Experience = () => {
     }
 
     const handleSubmit = () => {
-        resume = {...resume, skills: skillValue.trim()}
+
+        if (skillValue.length === 0) {
+            setMissingInfo(true)
+            return
+        }
+
+        resume = {...resume, skills: skillValue}
         updateResume(resume)
 
-        // router.push('/create/education')
+        router.push('/create/career-objectives')
     }
 
     useEffect(() => {
@@ -88,15 +96,38 @@ const Experience = () => {
                     </div>
 
                     <div className="btn_contain">
-                            <button className="back_btn" type="button" onClick={() => router.push('/create/education')}>
-                                <FontAwesomeIcon icon={faAngleLeft} color="inherit" />
-                                <span style={{marginLeft: '10px'}}>back</span>
+                        <button className="back_btn" type="button" onClick={() => router.push('/create/education')}>
+                            <FontAwesomeIcon icon={faAngleLeft} color="inherit" />
+                            <span style={{marginLeft: '10px'}}>back</span>
+                        </button>
+                        <button className="main_btn" onClick={handleSubmit}>
+                            <span style={{marginRight: '10px'}}>continue</span>
+                            <FontAwesomeIcon icon={faAngleRight} color="inherit" />
+                        </button>
+                    </div>
+
+                    <Modal
+                        opened={missingInfo}
+                        centered
+                        withCloseButton={false}
+                        onClose={() => setMissingInfo(false)}
+                    >
+                        <p className="missing_info_header">Missing Fields</p>
+                        <p className="missing_info_msg">Looks like you haven&apos;t entered any value in the Form provided, It&apos;s recommended you fill in the Form</p>
+                        <div className="missing_info_btn_contain">
+                            <button
+                                onClick={() => router.push('/create/career-objectives')}
+                            >
+                                Skip
                             </button>
-                            <button className="main_btn" onClick={handleSubmit}>
-                                <span style={{marginRight: '10px'}}>continue</span>
-                                <FontAwesomeIcon icon={faAngleRight} color="inherit" />
+                            <button
+                                onClick={() => setMissingInfo(false)}
+                                className="filled"
+                            >
+                                Fix
                             </button>
                         </div>
+                    </Modal>
                 </div>
             </Create>
         </Layout>
@@ -104,4 +135,4 @@ const Experience = () => {
     </>
 }
 
-export default Experience
+export default Skills

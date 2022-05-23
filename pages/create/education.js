@@ -1,4 +1,4 @@
-import { ActionIcon, Checkbox, Grid, Group, Select, TextInput } from "@mantine/core"
+import { ActionIcon, Checkbox, Grid, Group, Modal, Select, TextInput } from "@mantine/core"
 import Create from "../../components/Create"
 import Layout from "../../components/Layout"
 import { useState, useEffect, useRef } from "react"
@@ -9,17 +9,20 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleLeft, faAngleRight, faPlus, faTrashAlt } from "@fortawesome/free-solid-svg-icons"
 import { checkProp, getProp, getResume, updateResume } from "../../lib/createHandler"
 
-const Experience = () => {
+const Education = () => {
 
     const resume = getResume()
 
     const router = useRouter()
+
+    const [missingInfo, setMissingInfo] = useState(false)
 
     const initial = {
         schoolName: '',
         city: '',
         state: '',
         degree: '',
+        startDate: null,
         gradDate: null,
         key: randomId()
     }
@@ -33,11 +36,19 @@ const Experience = () => {
             city: '',
             state: '',
             degree: '',
+            startDate: null,
             gradDate: null,
             key: randomId()
         }
 
         setFormValue([...formValue, newFields])
+    }
+
+    const compareDates = (startDate, endDate) => {
+        let d1 = new Date(startDate)
+        let d2 = new Date(endDate)
+
+        return d1.getTime() > d2.getTime()
     }
 
     const removeFormItem = (key) => {
@@ -54,7 +65,7 @@ const Experience = () => {
         delete temp_initial.key
 
         if (JSON.stringify([temp_initial]) == JSON.stringify(formValue)) {
-            console.log("dumb move")
+            setMissingInfo(true)
             return
         }
 
@@ -65,6 +76,8 @@ const Experience = () => {
             form.city.trim().length < 1 ? temp_error[index] = { ...temp_error[index] ,city : "City is required" }: null
             form.state.trim().length < 1 ? temp_error[index] = { ...temp_error[index] ,state : "State is required" }: null
             form.degree.trim().length < 1 ? temp_error[index] = { ...temp_error[index] ,degree : "Degree is required" }: null
+            form.startDate === null ? temp_error[index] = { ...temp_error[index] ,startDate : "Start Date is required" }: null
+            compareDates(form.startDate, form.gradDate) ? temp_error[index] = { ...temp_error[index] ,gradDate : "Graduation date can't be earlier" }: null
             form.gradDate === null ? temp_error[index] = { ...temp_error[index] ,gradDate : "Graduation Date is required" }: null
         })
 
@@ -103,7 +116,7 @@ const Experience = () => {
                         { 
                             formValue.map((item, index) => (
 
-                                <div key={item.key}>
+                                <div key={index}>
                                     {
                                         index > 0 && 
                                         <Group position="right">
@@ -115,7 +128,7 @@ const Experience = () => {
 
                                     <Grid gutter="lg" mb={25}>
 
-                                        <Grid.Col span={12}>
+                                        <Grid.Col span={12} md={6}>
                                             <TextInput
                                                 
                                                 label="School Name"
@@ -162,8 +175,17 @@ const Experience = () => {
                                         <Grid.Col span={12} md={6}>
                                             <DatePicker
                                                 placeholder="Pick date"
+                                                label="Start Date"
+                                                value={formValue[index].startDate === null ? '' : new Date(formValue[index].startDate)}
+                                                onChange={(value) => changeFormValue(index, 'startDate', value)}
+                                                error={formError[index]?.startDate}
+                                            />
+                                        </Grid.Col>
+
+                                        <Grid.Col span={12} md={6}>
+                                            <DatePicker
+                                                placeholder="Pick date"
                                                 label="Graduation Date"
-                                                
                                                 value={formValue[index].gradDate === null ? '' : new Date(formValue[index].gradDate)}
                                                 onChange={(value) => changeFormValue(index, 'gradDate', value)}
                                                 error={formError[index]?.gradDate}
@@ -195,6 +217,29 @@ const Experience = () => {
                             </button>
                         </div>
                     </form>
+
+                    <Modal
+                        opened={missingInfo}
+                        centered
+                        withCloseButton={false}
+                        onClose={() => setMissingInfo(false)}
+                    >
+                        <p className="missing_info_header">Missing Fields</p>
+                        <p className="missing_info_msg">Looks like you haven&apos;t entered any value in the Form provided, It&apos;s recommended you fill in the Form</p>
+                        <div className="missing_info_btn_contain">
+                            <button
+                                onClick={() => router.push('/create/skills')}
+                            >
+                                Skip
+                            </button>
+                            <button
+                                onClick={() => setMissingInfo(false)}
+                                className="filled"
+                            >
+                                Fix
+                            </button>
+                        </div>
+                    </Modal>
                 </div>
             </Create>
         </Layout>
@@ -202,4 +247,4 @@ const Experience = () => {
     </>
 }
 
-export default Experience
+export default Education

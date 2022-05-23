@@ -1,4 +1,4 @@
-import { Textarea } from "@mantine/core"
+import { Modal, Textarea } from "@mantine/core"
 import Create from "../../components/Create"
 import Layout from "../../components/Layout"
 import { useState, useEffect, useRef } from "react"
@@ -8,18 +8,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleLeft, faAngleRight, faTimes } from "@fortawesome/free-solid-svg-icons"
 import { checkProp, getProp, getResume, updateResume } from "../../lib/createHandler"
 
-const Experience = () => {
+const Summary = () => {
 
     const resume = getResume()
 
     const router = useRouter()
 
-    const [summary, setSummary] = useState()
+    const [missingInfo, setMissingInfo] = useState(false)
+
+    const [summary, setSummary] = useState("")
     const [error, setError] = useState(null)
 
     const handleSubmit = (e) => {
 
         e.preventDefault()
+
+        if (summary.length === 0) {
+            setMissingInfo(true)
+            return
+        }
 
         let temp_error = null
     
@@ -33,7 +40,7 @@ const Experience = () => {
         resume = {...resume, summary: summary.trim()}
         updateResume(resume)
 
-        // router.push('/create/education')
+        router.push('/create/template')
     }
 
     useEffect(() => {
@@ -70,6 +77,29 @@ const Experience = () => {
                             </button>
                         </div>
                     </form>
+
+                    <Modal
+                        opened={missingInfo}
+                        centered
+                        withCloseButton={false}
+                        onClose={() => setMissingInfo(false)}
+                    >
+                        <p className="missing_info_header">Missing Fields</p>
+                        <p className="missing_info_msg">Looks like you haven&apos;t entered any value in the Form provided, It&apos;s recommended you fill in the Form</p>
+                        <div className="missing_info_btn_contain">
+                            <button
+                                onClick={() => router.push('/create/template')}
+                            >
+                                Skip
+                            </button>
+                            <button
+                                onClick={() => setMissingInfo(false)}
+                                className="filled"
+                            >
+                                Fix
+                            </button>
+                        </div>
+                    </Modal>
                 </div>
             </Create>
         </Layout>
@@ -77,4 +107,4 @@ const Experience = () => {
     </>
 }
 
-export default Experience
+export default Summary
