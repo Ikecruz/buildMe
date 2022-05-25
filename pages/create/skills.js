@@ -49,6 +49,8 @@ const Skills = () => {
     const handleSubmit = () => {
 
         if (skillValue.length === 0) {
+            resume = {...resume, skills: null}
+            updateResume(resume)
             setMissingInfo(true)
             return
         }
@@ -61,7 +63,7 @@ const Skills = () => {
 
     useEffect(() => {
         if (checkProp('skills')) {
-            setSkillValue(getProp('skills'))
+            if (getProp('skills') !== null) setSkillValue(getProp('skills'))
         }
     }, [])
     

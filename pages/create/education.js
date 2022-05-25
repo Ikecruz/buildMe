@@ -65,6 +65,8 @@ const Education = () => {
         delete temp_initial.key
 
         if (JSON.stringify([temp_initial]) == JSON.stringify(formValue)) {
+            resume = {...resume, education: null}
+            updateResume(resume)
             setMissingInfo(true)
             return
         }
@@ -102,7 +104,7 @@ const Education = () => {
 
     useEffect(() => {
         if (checkProp('education')) {
-            setFormValue(getProp('education'))
+            if (getProp('education') !== null) setFormValue(getProp('education'))
         }
     }, [])
     

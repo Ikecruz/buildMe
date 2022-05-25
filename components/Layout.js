@@ -1,6 +1,7 @@
 import Head from "next/head"
 import { motion } from "framer-motion"
 import Navbar from "./Navbar"
+import Footer from "./Footer"
 
 const Layout = ({ children ,title, description }) => {
 
@@ -27,6 +28,7 @@ const Layout = ({ children ,title, description }) => {
         >
             {children}
         </motion.main>
+        <Footer />
     </>
 }
 

@@ -2,7 +2,6 @@ import { Modal, Textarea } from "@mantine/core"
 import Create from "../../components/Create"
 import Layout from "../../components/Layout"
 import { useState, useEffect, useRef } from "react"
-import { randomId } from "@mantine/hooks"
 import { useRouter } from "next/router"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faAngleLeft, faAngleRight, faTimes } from "@fortawesome/free-solid-svg-icons"
@@ -24,6 +23,8 @@ const Summary = () => {
         e.preventDefault()
 
         if (summary.length === 0) {
+            resume = {...resume, summary: null}
+            updateResume(resume)
             setMissingInfo(true)
             return
         }
@@ -45,7 +46,7 @@ const Summary = () => {
 
     useEffect(() => {
         if (checkProp('summary')) {
-            setSummary(getProp('summary'))
+            if (getProp('summary') !== null) setSummary(getProp('summary'))
         }
     }, [])
     
@@ -57,7 +58,7 @@ const Summary = () => {
                     <form onSubmit={handleSubmit} onChange={() => setError(null)}>
 
                         <Textarea
-                            placeholder=""
+                            placeholder="Career Summary"
                             value={summary}
                             onChange={(e) => setSummary(e.target.value)}
                             label="Career Objectives"

@@ -1,4 +1,4 @@
-import { ActionIcon, Checkbox, Grid, Group, Modal, Select, TextInput } from "@mantine/core"
+import { ActionIcon, Checkbox, Grid, Group, Modal, Select, Text, Textarea, TextInput } from "@mantine/core"
 import Create from "../../components/Create"
 import Layout from "../../components/Layout"
 import { useState, useEffect, useRef } from "react"
@@ -25,6 +25,7 @@ const Experience = () => {
         startDate: null,
         endDate: null,
         currentWork: false,
+        duties: '',
         key: randomId()
     }
 
@@ -40,6 +41,7 @@ const Experience = () => {
             startDate: null,
             endDate: null,
             currentWork: false,
+            duties: '',
             key: randomId()
         }
 
@@ -67,6 +69,8 @@ const Experience = () => {
         delete temp_initial.key
 
         if (JSON.stringify([temp_initial]) == JSON.stringify(formValue)) {
+            resume = {...resume, experience: null}
+            updateResume(resume)
             setMissingInfo(true)
             return
         }
@@ -81,6 +85,7 @@ const Experience = () => {
             form.startDate === null ? temp_error[index] = { ...temp_error[index] ,startDate : "Start Date is required" }: null
             form.currentWork === false && compareDates(form.startDate, form.endDate) ? temp_error[index] = { ...temp_error[index] ,endDate : "End date can't be earlier" }: null
             form.endDate === null && form.currentWork === false ? temp_error[index] = { ...temp_error[index] ,endDate : "End date is required if you no longer work here" }: null
+            form.duties.trim().length < 50 ? temp_error[index] = { ...temp_error[index] ,duties : 'Career summary should be at least 50 characters long' }: null
         })
 
         setFormError([...temp_error])
@@ -114,7 +119,7 @@ const Experience = () => {
 
     useEffect(() => {
         if (checkProp('experience')) {
-            setFormValue(getProp('experience'))
+            if (getProp('experience') !== null) setFormValue(getProp('experience'))
         }
     }, [])
     
@@ -211,6 +216,17 @@ const Experience = () => {
                                                 label="I currently work here"
                                                 checked={formValue[index].currentWork}
                                                 onChange={(e) => changeFormValue(index, 'currentWork', e.currentTarget.checked)}
+                                            />
+                                        </Grid.Col>
+
+                                        <Grid.Col span={12}>
+                                            <Textarea
+                                                label="Work Responsibilites"
+                                                value={formValue[index].duties}
+                                                onChange={(e) => changeFormValue(index, 'duties', e.target.value)}
+                                                error={formError[index]?.duties}
+                                                autosize
+                                                minRows={6}
                                             />
                                         </Grid.Col>
 

@@ -17,6 +17,7 @@
     "@mantine/form": "^4.2.2",
     "@mantine/hooks": "^4.2.2",
     "@mantine/next": "^4.2.2",
+    "@mantine/rte": "^4.2.2",
     "@react-pdf/renderer": "^2.1.1",
     "dayjs": "^1.11.1",
     "framer-motion": "^6.3.3",

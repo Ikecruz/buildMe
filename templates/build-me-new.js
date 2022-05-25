@@ -90,14 +90,14 @@ const BuildMeNew = ({ resume }) => {
 
             {/* HEADER */}
             <View style={styles.header}>
-                <Text>{resume.personal.firstName} {resume.personal.lastname}</Text>
+                <Text>{resume.personal.firstName} {resume.personal.lastName}</Text>
             </View>
             {/* HEADER END */}
 
             <View style={styles.info}>
 
                 {
-                    resume?.summary && 
+                    resume?.summary !== null && 
                     <>
                         {/* PROFESSIONAL SUMMARY */}
                         <View style={styles.section}>
@@ -140,7 +140,7 @@ const BuildMeNew = ({ resume }) => {
 
                 {/* EXPERIENCE */}
                 {
-                    resume?.experience &&
+                    resume?.experience !== null &&
                     <>
                     <View style={styles.section}>
     
@@ -150,7 +150,7 @@ const BuildMeNew = ({ resume }) => {
     
                         <View style={styles.sectionValue}>
                             {
-                                resume.experience.map(({ jobTitle, employer, city, country, startDate, endDate, currentWork }, index) => (
+                                resume.experience.map(({ jobTitle, employer, city, country, startDate, endDate, currentWork, duties }, index) => (
                                     <View style={{marginBottom: "20px"}} key={index}>
                                         <Text style={styles.sectionValueText}>
                                             <p style={{textTransform: "uppercase"}}>{jobTitle}</p>,
@@ -159,6 +159,9 @@ const BuildMeNew = ({ resume }) => {
                                         </Text>
                                         <Text style={styles.sectionValueText}>{ employer }</Text>
                                         <Text style={styles.sectionValueText}>{ city }, { country }</Text>
+                                        <Text style={[styles.sectionValueText, {marginTop: "10px"}]}>
+                                            {duties}
+                                        </Text>
                                     </View>
                                 ))
                             }
@@ -172,7 +175,7 @@ const BuildMeNew = ({ resume }) => {
                 {/* EXPERIENCE END */}
 
                 {
-                    resume?.education &&
+                    resume?.education !== null &&
                     <>
                         {/* EDUCATION */}
                         <View style={styles.section}>
@@ -209,7 +212,7 @@ const BuildMeNew = ({ resume }) => {
                 
 
                 {
-                    resume?.skills &&
+                    resume?.skills !== null &&
                     <>
                         {/* SKILLS */}
                             <View style={styles.section}>

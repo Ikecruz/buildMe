@@ -106,6 +106,26 @@ section{
     font-size: .8em;
 }
 
+.footer .footer_contain{
+    display: flex;
+    height: 80px;
+    padding: 20px 0px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media screen and (max-width: 768px){
+    .footer .footer_contain{
+        flex-direction: column;
+        height: auto;
+    }
+}
+
+.footer .footer_contain .logo_contain .logo{
+    font-size: 1.1em;
+    font-weight: 700;
+}
+
 @media screen and (max-width: 768px){
     .home_page .hero_section{
         height: 70vh;
@@ -352,7 +372,7 @@ section{
 }
 
 .forms_body{
-    height: 90vh;
+    min-height: 90vh;
 }
 
 .forms_body .form_container{
