@@ -36,7 +36,7 @@ const Template = () => {
                         <p>Templates</p>
                     </div>
 
-                    <Grid gutter="xl">
+                    <Grid gutter="xl" style={{minHeight: "80vh"}}>
                         {
                             templates.map((temp) => (
                                 <Grid.Col span={6} md={3} key={temp.key}>
