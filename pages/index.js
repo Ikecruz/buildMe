@@ -1,7 +1,7 @@
 import Link from "next/link"
 import Layout from "../components/Layout"
 import { motion, useTransform, useViewportScroll } from "framer-motion"
-import { Container, Grid } from "@mantine/core"
+import { Button, Container, Grid } from "@mantine/core"
 import macImg from "../images/mac.png"
 import cvImg from "../images/resumewebp.png"
 import { useRef, useEffect } from "react"
@@ -78,6 +78,16 @@ const IndexPage = () => {
                             Build <span className="special_text">professional resume</span> fast and stress free
                         </motion.p>
                     </div>
+                    <Link href='/how-it-works' passHref>
+                        <motion.a 
+                            className="main_btn"
+                            whileHover="onHover"
+                            whileTap="onTap"
+                            variants={btnAnimate}
+                        >
+                            Get Started For Free
+                        </motion.a>
+                    </Link>
                 </div>
 
                 <section>
@@ -139,7 +149,7 @@ const IndexPage = () => {
                             >
                                 <div className="cv_text_contain">
                                     <p className="title">There&apos;s a resume for every profession</p>
-                                    <p className="desc">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima inventore, accusamus provident ducimus earum suscipit fugit accusantium unde molestiae ullam.</p>
+                                    <p className="desc">Our resume creator comes with 18 fully customizable templates. You’ll get advice on which one to pick depending on your industry, seniority level, and the kind of company you’re applying to.</p>
                                     <Link href='/how-it-works' passHref>
                                         <motion.a 
                                             className="main_btn"
@@ -179,16 +189,16 @@ const IndexPage = () => {
                             </Grid.Col>
                             <Grid.Col span={12} md={4}>
                                 <div className="users_comments">
-                                    <p className="name">Adebayo Micheal</p>
-                                    <p className="role">CEO Stringcode LTD</p>
-                                    <p className="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio magnam vitae voluptas distinctio numquam in hic error sint consequuntur maxime?</p>
+                                    <p className="name">Cruz Ikedinobi</p>
+                                    <p className="role">CEO Void INC</p>
+                                    <p className="comment">If you don’t know how to build your own resume from scratch, don’t worry—the website walks you through the process step by step and tells you what information you need to input for each section</p>
                                 </div>
                             </Grid.Col>
                             <Grid.Col span={12} md={4}>
                                 <div className="users_comments">
-                                    <p className="name">Adebayo Micheal</p>
-                                    <p className="role">CEO Stringcode LTD</p>
-                                    <p className="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio magnam vitae voluptas distinctio numquam in hic error sint consequuntur maxime?</p>
+                                    <p className="name">Noble Abaeze</p>
+                                    <p className="role">Still Unemployed</p>
+                                    <p className="comment">I went from fired to hired in less than 3 weeks. I was let go from my old job due to downsizing. With buildMe, I was able to build custom resumes tailored to the jobs I was applying to quickly and easily.</p>
                                 </div>
                             </Grid.Col>
                         </Grid>

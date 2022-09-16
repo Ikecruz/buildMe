@@ -1,7 +1,6 @@
 import { ActionIcon, Container, Grid } from "@mantine/core"
 import { useState, useEffect } from "react"
 import Layout from "../../components/Layout"
-import buildmenewImg from "../../images/build-me-new.png"
 import Image from "next/image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowCircleLeft, faCheck, faEye } from "@fortawesome/free-solid-svg-icons"
@@ -9,6 +8,9 @@ import { motion, AnimatePresence } from "framer-motion"
 import { randomId } from "@mantine/hooks"
 import { setTemplate } from "../../lib/createHandler"
 import { useRouter } from 'next/router'
+
+import buildmenewImg from "../../images/build-me-new.png"
+import jamesMillerImg from "../../images/james-miller.png"
 
 const Template = () => {
 
@@ -19,6 +21,11 @@ const Template = () => {
         {
             img: buildmenewImg,
             name: "build_me_new_resume",
+            key: randomId()
+        },
+        {
+            img: jamesMillerImg,
+            name: "james_miller",
             key: randomId()
         }
     ]

@@ -153,9 +153,9 @@ const BuildMeNew = ({ resume }) => {
                                 resume.experience.map(({ jobTitle, employer, city, country, startDate, endDate, currentWork, duties }, index) => (
                                     <View style={{marginBottom: "20px"}} key={index}>
                                         <Text style={styles.sectionValueText}>
-                                            <p style={{textTransform: "uppercase"}}>{jobTitle}</p>,
+                                            <Text style={{textTransform: "uppercase"}}>{jobTitle}</Text>,
                                             &nbsp;
-                                            <p>{ formatDate(startDate) } - { (endDate !== null && !currentWork) ? formatDate(endDate) : "Current" }</p>
+                                            <Text>{ formatDate(startDate) } - { (endDate !== null && !currentWork) ? formatDate(endDate) : "Current" }</Text>
                                         </Text>
                                         <Text style={styles.sectionValueText}>{ employer }</Text>
                                         <Text style={styles.sectionValueText}>{ city }, { country }</Text>
@@ -190,9 +190,9 @@ const BuildMeNew = ({ resume }) => {
                                 resume.education.map(({ schoolName, degree, startDate, gradDate, city, state }, index) => (
                                     <View style={{ marginBottom: "20px" }}  key={index}>
                                         <Text style={styles.sectionValueText}>
-                                            <p>{degree}</p>,
+                                            <Text>{degree}</Text>,
                                             &nbsp;
-                                            <p>{formatDate(startDate)} - { formatDate(gradDate) }</p>
+                                            <Text>{formatDate(startDate)} - { formatDate(gradDate) }</Text>
                                         </Text>
                                         <Text style={styles.sectionValueText}>{schoolName}</Text>
                                         <Text style={styles.sectionValueText}>{city}, {state}</Text>

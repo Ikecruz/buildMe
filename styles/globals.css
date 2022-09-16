@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
 
 a {
     color: inherit;
@@ -67,12 +68,13 @@ section{
 }
 
 .home_page .hero_section{
-    height: 80vh;
+    height: 90vh;
     /* background: red; */
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .nav_bar nav{
@@ -128,16 +130,18 @@ section{
 
 @media screen and (max-width: 768px){
     .home_page .hero_section{
-        height: 70vh;
+        height: 60vh;
     }
 }
 
 .home_page .hero_section .text_contain{
     width: 70%;
+    margin-bottom: 40px;
 }
 
 .home_page .hero_section .hero_text{
-    font-size: 4.8em;
+    font-size: 4.5em;
+    font-family: 'Bai Jamjuree', sans-serif;
     font-weight: 900;
     text-align: center;
     line-height: 1.2em;
@@ -146,6 +150,7 @@ section{
 
 .home_page .hero_section .hero_text .special_text{
     animation: textAnimate 50s infinite linear;
+    font-family: 'Bai Jamjuree', sans-serif;
 }
 
 @media screen and (max-width: 992px){
@@ -155,8 +160,13 @@ section{
 }
 
 @media screen and (max-width: 576px){
+    .home_page .hero_section .text_contain{
+        width: 90%;
+        margin-bottom: 40px;
+    }
+
     .home_page .hero_section .hero_text{
-        font-size: 2.8em;
+        font-size: 2.5em;
         line-height: 1.2em;
     }
 }
@@ -202,9 +212,10 @@ section{
 
 .home_page .features_section .features_header{
     text-align: center;
-    font-size: 1.5em;
-    font-weight: 600;
+    font-size: 1.3em;
+    font-weight: 700;
     margin-bottom: 20px;
+    font-family: 'Bai Jamjuree', sans-serif;
 }
 
 .home_page .features_section .feature{
@@ -218,14 +229,16 @@ section{
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-family: 'Bai Jamjuree', sans-serif;
 }
 
 .home_page .features_section .feature .title{
-    font-weight: 500;
+    font-weight: 700;
     font-size: 1.2em;
     color: #333333;
     margin-bottom: 20px;
     text-transform: capitalize;
+    font-family: 'Bai Jamjuree', sans-serif;
 }
 
 .home_page .features_section .feature .desc{
@@ -243,15 +256,17 @@ section{
 
 .home_page .device_image_contain .device_desc{
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: 600;
     margin-bottom: 20px;
+    font-family: 'Bai Jamjuree', sans-serif;
 }
 
 .home_page .cv_text_contain .title{
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-weight: 700;
     margin-bottom: 15px;
+    font-family: 'Bai Jamjuree', sans-serif;
 }
 
 .home_page .cv_text_contain .desc{
@@ -268,15 +283,17 @@ section{
 
 .home_page .users_comment_header{
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.3em;
     font-weight: 600;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    font-family: 'Bai Jamjuree', sans-serif;
 }
 
 .home_page .users_comments .name{
-    font-size: 1.2em;
-    font-weight: 500;
-    margin-bottom: 6px;
+    font-size: 1em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-family: 'Bai Jamjuree', sans-serif;
 }
 
 .home_page .users_comments .role{
@@ -305,15 +322,19 @@ section{
     align-items: center;
     justify-content: center;
     text-align: center;
+    padding: 20px;
 }
 
 .home_page .before_footer_section .text{
-    font-size: 1.4em;
+    font-size: 1.3em;
     font-weight: 700;
+    font-family: 'Bai Jamjuree', sans-serif;
+    margin-bottom: 10px;
 }
 
 .home_page .before_footer_section .sub_text{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
     color: gray;
 }
 

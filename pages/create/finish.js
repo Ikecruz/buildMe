@@ -7,16 +7,13 @@ import { motion, AnimatePresence } from "framer-motion"
 import { PDFDownloadLink } from "@react-pdf/renderer"
 import BuildMeNew from "../../templates/build-me-new"
 import { getResume, getTemplate } from "../../lib/createHandler"
+import JamesMiller from "../../templates/james-miller"
  
 const Finish = () => {
 
     const resume = getResume()
 
     const [templateName, setTemplateName] = useState(null)
-    
-    const templates = {
-        'build_me_new_resume': BuildMeNew,
-    }
 
     useEffect(() => {
         setTimeout(() => {
@@ -103,7 +100,8 @@ const Finish = () => {
                             <PDFDownloadLink 
                                 document={
                                     <>
-                                        { templateName === "build_me_new_resume" && <templates.build_me_new_resume resume={resume} /> }
+                                        { templateName === "build_me_new_resume" && <BuildMeNew resume={resume} /> }
+                                        { templateName === "james_miller" && <JamesMiller resume={resume} /> }
                                     </>
                                 } 
                                 fileName="resume.pdf"
@@ -114,6 +112,7 @@ const Finish = () => {
                                         whileHover="onHover"
                                         whileTap="onTap"
                                         variants={btnAnimate}
+                                        disabled={loading}
                                     >
                                         <FontAwesomeIcon icon={faDownload} />
                                         <span>{ loading ? 'Loading document...' : 'Download Now' }</span>
