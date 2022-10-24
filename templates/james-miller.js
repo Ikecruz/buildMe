@@ -3,10 +3,10 @@ import { Document, Font, Page, StyleSheet, Text, View } from "@react-pdf/rendere
 const JamesMiller = ({ resume }) => {
 
     Font.register({ family: 'Inter', fonts: [
-        { src: "http://fonts.gstatic.com/s/titilliumweb/v15/NaPecZTIAOhVxoMyOr9n_E7fRMTsDIRSfr0.ttf" },
-        { src: "http://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffGjEKIx5YrSYqWM.ttf", fontWeight: 300},
-        { src: "http://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffHjDKIx5YrSYqWM.ttf", fontWeight: 700 },
-        { src: "http://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffEDBKIx5YrSYqWM.ttf", fontWeight: 900 },
+        { src: "https://fonts.gstatic.com/s/titilliumweb/v15/NaPecZTIAOhVxoMyOr9n_E7fRMTsDIRSfr0.ttf" },
+        { src: "https://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffGjEKIx5YrSYqWM.ttf", fontWeight: 300},
+        { src: "https://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffHjDKIx5YrSYqWM.ttf", fontWeight: 700 },
+        { src: "https://fonts.gstatic.com/s/titilliumweb/v15/NaPDcZTIAOhVxoMyOr9n_E7ffEDBKIx5YrSYqWM.ttf", fontWeight: 900 },
     ]});
 
     const formatDate = (date) => {

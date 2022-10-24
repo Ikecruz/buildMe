@@ -90,7 +90,7 @@ const Finish = () => {
                                 label={
                                     <Center>
                                         <ThemeIcon color="teal" variant="light" radius="xl" size="xl">
-                                        <FontAwesomeIcon icon={faCheck} />
+                                            <FontAwesomeIcon icon={faCheck} />
                                         </ThemeIcon>
                                     </Center>
                                 }
