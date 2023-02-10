@@ -182,7 +182,7 @@ const IndexPage = () => {
                         <Grid gutter="xl">
                             <Grid.Col span={12} md={4}>
                                 <div className="users_comments">
-                                    <p className="name">Adebayo Micheal</p>
+                                    <p className="name">Jadon Rashford</p>
                                     <p className="role">CEO Stringcode LTD</p>
                                     <p className="comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio magnam vitae voluptas distinctio numquam in hic error sint consequuntur maxime?</p>
                                 </div>
@@ -196,7 +196,7 @@ const IndexPage = () => {
                             </Grid.Col>
                             <Grid.Col span={12} md={4}>
                                 <div className="users_comments">
-                                    <p className="name">Noble Abaeze</p>
+                                    <p className="name">John Doe</p>
                                     <p className="role">Still Unemployed</p>
                                     <p className="comment">I went from fired to hired in less than 3 weeks. I was let go from my old job due to downsizing. With buildMe, I was able to build custom resumes tailored to the jobs I was applying to quickly and easily.</p>
                                 </div>
